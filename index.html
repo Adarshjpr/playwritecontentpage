@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uncodemy - Playwright Training Course in Noida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6F00;
+            --primary-light: #FFA040;
+            --primary-dark: #E65100;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray: #E0E0E0;
+            --gray-dark: #333333;
+            --text: #333333;
+            --text-light: #666666;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: var(--radius);
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
+            padding: 10rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 60%;
+            height: 200%;
+            background-color: var(--primary-light);
+            opacity: 0.1;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .ratings {
+            margin-top: 2rem;
+        }
+
+        .rating-platforms {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .rating-platforms span {
+            background: var(--primary-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            padding-right: 1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--gray-light);
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .about-image img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background-color: var(--gray-light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            background-color: var(--white);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .comparison-table th {
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--gray-light);
+        }
+
+        .comparison-table .check {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .comparison-table .cross {
+            color: #F44336;
+            font-weight: bold;
+        }
+
+        /* Course Highlights Section */
+        .highlights {
+            background-color: var(--gray-light);
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .highlight-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Who Should Enroll Section */
+        .enroll {
+            background-color: var(--white);
+        }
+
+        .enroll-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .enroll-card {
+            background-color: var(--gray-light);
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .enroll-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .enroll-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Curriculum Section */
+        .curriculum {
+            background-color: var(--gray-light);
+        }
+
+        .curriculum-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .accordion-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .accordion-content {
+            background-color: var(--white);
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content.active {
+            padding: 1.5rem;
+            max-height: 1000px;
+        }
+
+        .module-list {
+            list-style-type: none;
+        }
+
+        .module-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed var(--gray);
+        }
+
+        .module-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Placement Section */
+        .placement {
+            background-color: var(--white);
+        }
+
+        .placement-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .company-logos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .company-logo {
+            background-color: var(--gray-light);
+            padding: 1rem;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+        }
+
+        .company-logo img {
+            max-width: 100%;
+            max-height: 40px;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .company-logo:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--gray-light);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 1rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+        }
+
+        .author-role {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Real Life Challenges Section */
+        .challenges {
+            background-color: var(--white);
+        }
+
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .challenge-card {
+            background-color: var(--gray-light);
+            padding: 2rem;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .challenge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary);
+        }
+
+        /* Day to Day Applications Section */
+        .applications {
+            background-color: var(--gray-light);
+        }
+
+        .applications-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .application-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .application-step {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Tips Section */
+        .tips {
+            background-color: var(--white);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tip-card {
+            background-color: var(--gray-light);
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .tip-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background-color: var(--gray-light);
+        }
+
+        .portfolio-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .portfolio-list {
+            list-style-type: none;
+        }
+
+        .portfolio-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .portfolio-list li:last-child {
+            border-bottom: none;
+        }
+
+        .portfolio-list li i {
+            color: var(--primary);
+        }
+
+        /* Soft Skills Section */
+        .soft-skills {
+            background-color: var(--white);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .skill-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        /* Interactive Learning Section */
+        .interactive {
+            background-color: var(--gray-light);
+        }
+
+        .interactive-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .learning-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .method-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Career Roadmap Section */
+        .roadmap {
+            background-color: var(--white);
+        }
+
+        .roadmap-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .roadmap-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background-color: var(--primary);
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .roadmap-item:nth-child(odd) {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .roadmap-item:nth-child(odd) .roadmap-content {
+            margin-right: 2rem;
+            margin-left: 0;
+        }
+
+        .roadmap-dot {
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .roadmap-content {
+            width: 45%;
+            background-color: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-left: 2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background-color: var(--gray-light);
+            padding: 2rem;
+            border-radius: var(--radius);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--gray);
+            border-radius: var(--radius);
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255, 111, 0, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            padding: 1rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            margin-bottom: 0.3rem;
+        }
+
+        .map {
+            margin-top: 2rem;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #CCCCCC;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #CCCCCC;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content, .about-content, .contact-content, .placement-content,
+            .applications-content, .portfolio-content, .interactive-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .roadmap-container::before {
+                left: 20px;
+            }
+
+            .roadmap-item, .roadmap-item:nth-child(odd) {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .roadmap-dot {
+                left: 20px;
+            }
+
+            .roadmap-content, .roadmap-item:nth-child(odd) .roadmap-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero {
+                padding: 8rem 0 4rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .stats, .benefits-grid, .highlights-grid, .enroll-grid, 
+            .challenges-grid, .tips-grid, .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .company-logos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th, .comparison-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+ 
+     <!-- Header - No changes -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Uncodemy</a>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#comparison">Comparison</a></li>
+                    <li><a href="#highlights">Highlights</a></li>
+                    <li><a href="#enroll">Who Should Enroll</a></li>
+                    <li><a href="#curriculum">Curriculum</a></li>
+                    <li><a href="#placement">Placement</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn">Enroll Now</a>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section - Updated content -->
+    <section id="home" class="hero" >
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Playwright Training Course in Noida at Uncodemy</h1>
+                    <p>Welcome to Uncodemy, your premier destination for upskilling and career growth with the best Playwright Training Course in Noida. In today's fast-paced digital world, automation testing has become a critical skill, and Playwright is one of the most in-demand frameworks for web application testing.</p>
+                    <div class="hero-btns">
+                        <a href="#curriculum" class="btn">View Curriculum</a>
+                        <a href="#contact" class="btn btn-outline">Enroll Now</a>
+                    </div>
+                    <div class="ratings">
+                        <p><strong>Overall Rating: 4.9/5</strong> based on 5,650+ votes</p>
+                        <div class="rating-platforms">
+                            <span>Google: 5/5</span>
+                            <span>Sul: 4.5/5</span>
+                            <span>UrbanPro: 4.6/5</span>
+                            <span>Just Dial: 4.5/5</span>
+                            <span>Facebook: 4.5/5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="IT Training" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section - Updated content -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Uncodemy?</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Our Playwright Institute in Noida is designed to help you gain hands-on expertise, practical knowledge, and industry-ready skills to excel in automated testing and QA roles.</p>
+                    <p>Whether you are a fresh graduate, IT professional, or someone looking to transition into automation testing, Uncodemy's Offline Playwright Course in Noida ensures that you are fully prepared to take on challenging projects in top companies.</p>
+                    <p>By completing this Playwright Certificate Training in Noida, you will become a job-ready automation professional, capable of managing complex testing projects in top IT companies.</p>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number" data-count="5500">0</div>
+                            <div class="stat-text">Successful Placements</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" data-count="10">0</div>
+                            <div class="stat-text">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" data-count="20">0</div>
+                            <div class="stat-text">Live Projects</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Uncodemy" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section - Updated content -->
+    <section id="benefits" class="benefits section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose a Playwright Course for Career Growth?</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>High Demand</h3>
+                    <p>The demand for skilled Playwright testers is skyrocketing across industries.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Career Opportunities</h3>
+                    <p>Pursue high-paying roles like Automation Engineer, QA Automation Tester, Test Lead, and Test Architect.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Industry-Aligned Skills</h3>
+                    <p>Gain expertise in end-to-end web testing, test case creation, debugging, and automation project management.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast Execution</h3>
+                    <p>Playwright tests run significantly faster than other automation tools.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3>Cross-Browser Testing</h3>
+                    <p>Test across all modern browsers with a single API.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Multiple Language Support</h3>
+                    <p>Write tests in JavaScript, TypeScript, and more based on your preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section - Updated content -->
+    <section id="comparison" class="comparison section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Uncodemy vs Other Institutes</h2>
+            </div>
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Uncodemy</th>
+                            <th>Other Institutes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Industry Expert Trainers (10+ Years Experience)</td>
+                            <td class="check">✓</td>
+                            <td class="cross">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Working Professionals as Trainers</td>
+                            <td class="check">✓</td>
+                            <td class="cross">✗</td>
+                        </tr>
+                        <tr>
+                            <td>20+ Live Projects + 1 Project per Module</td>
+                            <td class="check">✓</td>
+                            <td class="cross">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Global Certifications (Microsoft, IBM)</td>
+                            <td class="check">✓</td>
+                            <td class="cross">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Guaranteed Job Placement Assistance</td>
+                            <td class="check">✓</td>
+                            <td class="cross">✗</td>
+                        </tr>
+                        <tr>
+                            <td>AI Resume Building & Interview Analyzer</td>
+                            <td class="check">✓</td>
+                            <td class="cross">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Lifetime Course Access + Recordings</td>
+                            <td class="check">✓</td>
+                            <td class="cross">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Hands-on Training with 1:1 Mentorship</td>
+                            <td class="check">✓</td>
+                            <td class="cross">✗</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Highlights Section - Updated content -->
+    <section id="highlights" class="highlights section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Course Highlights & Key Features</h2>
+            </div>
+            <div class="highlights-grid">
+                <div class="highlight-item fade-in">
+                    <div class="highlight-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3>Course Duration</h3>
+                        <p>3–4 Months (Flexible)</p>
+                    </div>
+                </div>
+                <div class="highlight-item fade-in">
+                    <div class="highlight-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div>
+                        <h3>Mode of Training</h3>
+                        <p>Offline Playwright Classes in Noida / Online Options Available</p>
+                    </div>
+                </div>
+                <div class="highlight-item fade-in">
+                    <div class="highlight-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div>
+                        <h3>Comprehensive Curriculum</h3>
+                        <p>Basics to advanced Playwright scripting, JS/TS, Node.js, CI/CD integration</p>
+                    </div>
+                </div>
+                <div class="highlight-item fade-in">
+                    <div class="highlight-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div>
+                        <h3>Portfolio Projects</h3>
+                        <p>Real client-based projects to enhance your resume</p>
+                    </div>
+                </div>
+                <div class="highlight-item fade-in">
+                    <div class="highlight-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div>
+                        <h3>Placement Support</h3>
+                        <p>Mock interviews, resume building, corporate networking</p>
+                    </div>
+                </div>
+                <div class="highlight-item fade-in">
+                    <div class="highlight-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <h3>Expert Guidance</h3>
+                        <p>Trainers with 10+ years of industry experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Should Enroll Section - Updated content -->
+    <section id="enroll" class="enroll section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Who Should Enroll?</h2>
+            </div>
+            <div class="enroll-grid">
+                <div class="enroll-card fade-in">
+                    <div class="enroll-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Fresh Graduates</h3>
+                    <p>Looking for Playwright certification in Noida to start their IT career.</p>
+                </div>
+                <div class="enroll-card fade-in">
+                    <div class="enroll-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Manual Testers</h3>
+                    <p>Seeking to upgrade to automation testing roles.</p>
+                </div>
+                <div class="enroll-card fade-in">
+                    <div class="enroll-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>IT Professionals</h3>
+                    <p>Aiming to upskill in automation testing for career growth.</p>
+                </div>
+                <div class="enroll-card fade-in">
+                    <div class="enroll-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>QA Professionals</h3>
+                    <p>Looking to enhance their testing skills with modern automation tools.</p>
+                </div>
+                <div class="enroll-card fade-in">
+                    <div class="enroll-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Career Changers</h3>
+                    <p>Wanting to transition into the high-demand field of automation testing.</p>
+                </div>
+                <div class="enroll-card fade-in">
+                    <div class="enroll-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certification Seekers</h3>
+                    <p>Interested in Portfolio Management Professional or Scrum Master courses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section - Updated content -->
+    <section id="curriculum" class="curriculum section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Playwright Course Curriculum in Noida</h2>
+            </div>
+            <div class="curriculum-accordion">
+                <div class="accordion-item fade-in">
+                    <div class="accordion-header">
+                        <span>Module 1: Introduction to Playwright</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="module-list">
+                            <li>Basics of automation testing</li>
+                            <li>Installing and configuring Playwright</li>
+                            <li>Writing first Playwright scripts</li>
+                            <li>Browser automation & testing strategies</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item fade-in">
+                    <div class="accordion-header">
+                        <span>Module 2: JavaScript & TypeScript for Playwright</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="module-list">
+                            <li>Fundamentals of JS & TS</li>
+                            <li>DOM handling and locators</li>
+                            <li>Event handling and debugging</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item fade-in">
+                    <div class="accordion-header">
+                        <span>Module 3: Core Playwright Concepts</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="module-list">
+                            <li>Handling frames, popups, and alerts</li>
+                            <li>Locators, selectors, and waits</li>
+                            <li>Multiple page and tab automation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item fade-in">
+                    <div class="accordion-header">
+                        <span>Module 4: Advanced Playwright Features</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="module-list">
+                            <li>Headless browser testing</li>
+                            <li>Parallel test execution</li>
+                            <li>CI/CD integration and pipeline setup</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item fade-in">
+                    <div class="accordion-header">
+                        <span>Module 5: Frameworks & Reporting</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="module-list">
+                            <li>Jest, Mocha, Cucumber</li>
+                            <li>Logging, reporting, and debugging</li>
+                            <li>Continuous Integration workflows</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item fade-in">
+                    <div class="accordion-header">
+                        <span>Module 6: Real-Time Projects & Portfolio</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="module-list">
+                            <li>Automation for e-commerce and web apps</li>
+                            <li>Client-based real-world projects</li>
+                            <li>End-to-end testing scenarios</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item fade-in">
+                    <div class="accordion-header">
+                        <span>Module 7: Interview Preparation & Resume Guidance</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul class="module-list">
+                            <li>Mock interviews and resume reviews</li>
+                            <li>AI Resume Analyzer</li>
+                            <li>Placement guidance and corporate networking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placement Section - Updated content -->
+    <section id="placement" class="placement section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Placement Assistance & Corporate Exposure</h2>
+            </div>
+            <div class="placement-content">
+                <div class="placement-text">
+                    <p>Uncodemy ensures 100% placement support with:</p>
+                    <ul>
+                        <li>AI-based resume and interview analyzer</li>
+                        <li>Mock interviews with industry experts</li>
+                        <li>Corporate tie-ups with top IT companies</li>
+                        <li>Real client projects to gain exposure</li>
+                        <li>Placement assistance until you get selected</li>
+                    </ul>
+                    <p>Uncodemy has a proven track record with 5,500+ successful placements in top organizations.</p>
+                </div>
+                <div class="placement-companies">
+                    <h3>Our Placed Students</h3>
+                    <div class="company-logos">
+                        <div class="company-logo">TCS</div>
+                        <div class="company-logo">Deloitte</div>
+                        <div class="company-logo">Infosys</div>
+                        <div class="company-logo">IBM</div>
+                        <div class="company-logo">HCL</div>
+                        <div class="company-logo">Maruti Tech</div>
+                        <div class="company-logo">RapidOps</div>
+                        <div class="company-logo">Bloohash</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section - Updated content -->
+    <section id="testimonials" class="testimonials section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Alumni Testimonials & Career Journeys</h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "Uncodemy's Playwright course in Noida helped me get placed in Deloitte. Hands-on projects were amazing!"
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-img">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Riya Tiwari" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Riya Tiwari</h4>
+                                    <div class="author-role">Placed at Deloitte</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "Curriculum is perfect for real-world testing. Highly recommend for automation enthusiasts."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-img">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Tanvi Singh" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Tanvi Singh</h4>
+                                    <div class="author-role">Placed at Bloohash</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "Trainers are extremely supportive. Placement support and resume guidance made a huge difference."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-img">
+                                    <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Abhilasha Rathi" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Abhilasha Rathi</h4>
+                                    <div class="author-role">Placed at IBM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Life Challenges Section - Updated content -->
+    <section id="challenges" class="challenges section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Real-Life Challenges in Automation Testing</h2>
+            </div>
+            <div class="challenges-grid">
+                <div class="challenge-card fade-in">
+                    <h3>Handling Dynamic Web Elements</h3>
+                    <p>Many students struggle with dynamic web elements, popups, or asynchronous scripts. These difficulties are completely normal and part of the learning curve.</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h3>Time-Consuming Manual Testing</h3>
+                    <p>Manual testing of repetitive tasks is often time-consuming and prone to errors. With Playwright, automation scripts can complete tasks in minutes while minimizing mistakes.</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h3>Balancing Learning and Job</h3>
+                    <p>For working professionals, balancing learning and full-time job responsibilities can be challenging. Uncodemy's weekend and evening batches are specifically designed to help.</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h3>Portfolio Development</h3>
+                    <p>Effectively showcasing Playwright projects in a portfolio is crucial to attract recruiters. Even a single well-documented project can make a strong impression.</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h3>Soft Skills Development</h3>
+                    <p>While technical knowledge is essential, communication and problem-solving skills are equally important for automation testers.</p>
+                </div>
+                <div class="challenge-card fade-in">
+                    <h3>Staying Updated with Trends</h3>
+                    <p>Automation testing is constantly evolving with new trends like AI-assisted test generation and cloud-based parallel testing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Day to Day Applications Section - Updated content -->
+    <section id="applications" class="applications section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Day-to-Day Applications of Playwright in IT Projects</h2>
+            </div>
+            <div class="applications-content">
+                <div class="application-steps">
+                    <div class="application-step fade-in">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3>E-commerce Checkout Processes</h3>
+                            <p>Automate testing of shopping carts, payment gateways, and order processing.</p>
+                        </div>
+                    </div>
+                    <div class="application-step fade-in">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3>Banking Fund Transfer Modules</h3>
+                            <p>Verify transaction workflows, security protocols, and error handling.</p>
+                        </div>
+                    </div>
+                    <div class="application-step fade-in">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3>ERP Employee Management Systems</h3>
+                            <p>Automate payroll processing, attendance tracking, and HR workflows.</p>
+                        </div>
+                    </div>
+                    <div class="application-step fade-in">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h3>Healthcare Portals</h3>
+                            <p>Test patient registration, appointment scheduling, and medical record systems.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Automation Testing" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section - Updated content -->
+    <section id="tips" class="tips section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tips to Balance Learning and Job Responsibilities</h2>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card fade-in">
+                    <div class="tip-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Flexible Schedules</h3>
+                    <p>Uncodemy's weekend and evening batches help professionals manage both learning and work.</p>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Recorded Sessions</h3>
+                    <p>Access recorded classes to review material at your convenience.</p>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Structured Modules</h3>
+                    <p>Well-organized curriculum allows efficient learning without compromising job responsibilities.</p>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time Management</h3>
+                    <p>Dedicate specific time slots for practice and project work.</p>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Peer Support</h3>
+                    <p>Collaborate with fellow learners to stay motivated and share knowledge.</p>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Apply at Work</h3>
+                    <p>Look for opportunities to implement your new skills in current job projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section - Updated content -->
+    <section id="portfolio" class="portfolio section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Portfolio Development Tips</h2>
+            </div>
+            <div class="portfolio-content">
+                <div class="portfolio-text">
+                    <p>Effectively showcasing Playwright projects in a portfolio is crucial to attract recruiters. Clearly present each project with:</p>
+                    <ul class="portfolio-list">
+                        <li><i class="fas fa-check"></i> Requirements analysis</li>
+                        <li><i class="fas fa-check"></i> Test case design</li>
+                        <li><i class="fas fa-check"></i> Automation scripts</li>
+                        <li><i class="fas fa-check"></i> Debugging process</li>
+                        <li><i class="fas fa-check"></i> Reporting outcomes</li>
+                        <li><i class="fas fa-check"></i> Client presentation skills</li>
+                    </ul>
+                    <p>Even a single well-documented e-commerce automation project can make a strong impression during interviews.</p>
+                </div>
+                <div class="portfolio-image">
+                    <img src="https://images.unsplash.com/photo-1556624651-1f527cdf6508?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Portfolio Development" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soft Skills Section - Updated content -->
+    <section id="soft-skills" class="soft-skills section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Importance of Soft Skills Along with Technical Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-item fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Communication</h3>
+                    <p>Automation testers need to explain bugs, test results, and processes to team members or clients.</p>
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Problem-Solving</h3>
+                    <p>Essential for analyzing complex systems and identifying root causes of issues.</p>
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Team Collaboration</h3>
+                    <p>Work effectively in agile environments with cross-functional teams.</p>
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Client Interaction</h3>
+                    <p>Manage client expectations and present testing outcomes professionally.</p>
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Project Reporting</h3>
+                    <p>Create clear, concise reports that stakeholders can understand and act upon.</p>
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Adaptability</h3>
+                    <p>Quickly adjust to changing requirements and new technologies in the testing landscape.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Learning Section - Updated content -->
+    <section id="interactive" class="interactive section">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Uncodemy Makes Learning Interactive and Fun</h2>
+            </div>
+            <div class="interactive-content">
+                <div class="learning-methods">
+                    <div class="method fade-in">
+                        <div class="method-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h3>Live Projects</h3>
+                            <p>Hands-on experience with real-world scenarios and client-based projects.</p>
+                        </div>
+                    </div>
+                    <div class="method fade-in">
+                        <div class="method-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <h3>Peer Discussions</h3>
+                            <p>Collaborative learning environment with group activities and knowledge sharing.</p>
+                        </div>
+                    </div>
+                    <div class="method fade-in">
+                        <div class="method-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <div>
+                            <h3>Debugging Exercises</h3>
+                            <p>Practical sessions focused on identifying and fixing automation issues.</p>
+                        </div>
+                    </div>
+                    <div class="method fade-in">
+                        <div class="method-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div>
+                            <h3>1:1 Mentorship</h3>
+                            <p>Personalized guidance from industry experts with 10+ years of experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="interactive-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Interactive Learning" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Roadmap Section - Updated content -->
+    <section id="roadmap" class="roadmap section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Career Roadmap & Industry Trends</h2>
+            </div>
+            <div class="roadmap-container">
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <h3>Entry Level Positions</h3>
+                        <p>Junior Automation Engineer → Automation Tester</p>
+                        <p><strong>Average Salary in Noida:</strong> ₹4–8 LPA for beginners</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <h3>Mid-Level Positions</h3>
+                        <p>Senior Automation Engineer → Test Lead</p>
+                        <p><strong>Industries Hiring:</strong> IT, E-commerce, Banking, Healthcare, Startups</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <h3>Advanced Positions</h3>
+                        <p>Test Architect → QA Manager</p>
+                        <p><strong>Average Salary:</strong> ₹10–20 LPA for experienced professionals</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-content">
+                        <h3>Specialized Roles</h3>
+                        <p>Agile testing, Scrum Master roles, Portfolio Management positions</p>
+                        <p><strong>Emerging Trends:</strong> AI-assisted testing, cloud-based parallel testing</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-title" style="margin-top: 4rem;">
+                <h2>Sample Projects & Portfolio</h2>
+            </div>
+            <div class="highlights-grid">
+                <div class="highlight-item fade-in">
+                    <div class="highlight-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div>
+                        <h3>E-commerce Checkout</h3>
+                        <p>Automated testing of e-commerce site checkout process</p>
+                    </div>
+                </div>
+                <div class="highlight-item fade-in">
+                    <div class="highlight-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div>
+                        <h3>ERP Application</h3>
+                        <p>End-to-end testing for web-based ERP application</p>
+                    </div>
+                </div>
+                <div class="highlight-item fade-in">
+                    <div class="highlight-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div>
+                        <h3>CI/CD Pipeline</h3>
+                        <p>Parallel browser testing and CI/CD pipeline setup</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - No changes -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Enroll Now</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form id="enrollForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Select Course</label>
+                            <select id="course" class="form-control" required>
+                                <option value="">Choose a course</option>
+                                <option value="playwright">Playwright Automation Testing</option>
+                                <option value="portfolio">Portfolio Management Professional</option>
+                                <option value="scrum">Scrum Master Certification</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message (Optional)</label>
+                            <textarea id="message" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Enrollment Request</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Our Location</h4>
+                            <p>Uncodemy Institute, Sector 62, Noida, Uttar Pradesh 201309</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone Number</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <p>info@uncodemy.com</p>
+                        </div>
+                    </div>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.715260342752!2d77.36912431508086!3d28.544358382451032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5f4dee5f5c7%3A0x6d7b6c1a8b0b0b0b!2sSector%2062%2C%20Noida%2C%20Uttar%20Pradesh%20201309!5e0!3m2!1sen!2sin!4v1629876543210!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+  
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Testimonial Slider
+        const track = document.querySelector('.testimonial-track');
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        
+        function goToSlide(slideIndex) {
+            track.style.transform = `translateX(-${slideIndex * 100}%)`;
+            
+            // Update active dot
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[slideIndex].classList.add('active');
+            
+            currentSlide = slideIndex;
+        }
+        
+        // Dot click events
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+            });
+        });
+        
+        // Auto slide
+        setInterval(() => {
+            let nextSlide = (currentSlide + 1) % slides.length;
+            goToSlide(nextSlide);
+        }, 5000);
+        
+        // Animated counter for stats
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200;
+        
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        };
+        
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('i');
+                
+                // Toggle active class
+                content.classList.toggle('active');
+                
+                // Rotate icon
+                if (content.classList.contains('active')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+                
+                // Close other accordion items
+                accordionHeaders.forEach(otherHeader => {
+                    if (otherHeader !== header) {
+                        otherHeader.nextElementSibling.classList.remove('active');
+                        otherHeader.querySelector('i').style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+        
+        // Scroll animation for elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const checkScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Initialize animations on load
+        window.addEventListener('load', () => {
+            checkScroll();
+            
+            // Start counter animation when stats section is in view
+            const statsSection = document.querySelector('.stats');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            observer.observe(statsSection);
+        });
+        
+        window.addEventListener('scroll', checkScroll);
+        
+        // Form submission
+        document.getElementById('enrollForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your enrollment request! We will contact you shortly.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Set active navigation link based on scroll position
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
