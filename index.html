@@ -36,63 +36,17 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 0;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary);
-        }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .container {
+        .playwright-container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
-        .btn {
+        .playwright-btn {
             display: inline-block;
             padding: 0.8rem 1.8rem;
             background-color: var(--primary);
@@ -105,118 +59,63 @@
             text-align: center;
         }
 
-        .btn:hover {
+        .playwright-btn:hover {
             background-color: var(--primary-dark);
             transform: translateY(-2px);
             box-shadow: var(--shadow);
         }
 
-        .btn-outline {
+        .playwright-btn-outline {
             background-color: transparent;
             border: 2px solid var(--primary);
             color: var(--primary);
         }
 
-        .btn-outline:hover {
+        .playwright-btn-outline:hover {
             background-color: var(--primary);
             color: var(--white);
         }
 
-        .section {
+        .playwright-section {
             padding: 5rem 0;
         }
 
-        .section-title {
+        .playwright-section-title {
             text-align: center;
             margin-bottom: 3rem;
         }
 
-        .section-title h2 {
+        .playwright-section-title h2 {
             display: inline-block;
-        }
-
-        .section-title h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            padding: 0.5rem 0;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            font-size: 2rem;
             position: relative;
+            padding-bottom: 0.5rem;
         }
 
-        .nav-links a::after {
+        .playwright-section-title h2::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
             background-color: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: var(--primary);
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
         }
 
         /* Hero Section */
-        .hero {
+        .playwright-hero {
             background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
-            padding: 10rem 0 5rem;
+            padding: 5rem 0;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
+        .playwright-hero::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -229,7 +128,7 @@
             z-index: 0;
         }
 
-        .hero-content {
+        .playwright-hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
@@ -238,82 +137,84 @@
             z-index: 1;
         }
 
-        .hero-text h1 {
+        .playwright-hero-text h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
             font-size: 3rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
 
-        .hero-text p {
+        .playwright-hero-text p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             color: var(--text-light);
         }
 
-        .hero-btns {
+        .playwright-hero-btns {
             display: flex;
             gap: 1rem;
             margin-bottom: 2rem;
         }
 
-        .ratings {
+        .playwright-ratings {
             margin-top: 2rem;
         }
 
-        .rating-platforms {
+        .playwright-rating-platforms {
             display: flex;
             gap: 1rem;
             margin-top: 0.5rem;
             flex-wrap: wrap;
         }
 
-        .rating-platforms span {
+        .playwright-rating-platforms span {
             background: var(--primary-light);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.9rem;
         }
 
-        .hero-image {
+        .playwright-hero-image {
             text-align: center;
         }
 
-        .hero-image img {
+        .playwright-hero-image img {
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            animation: float 3s ease-in-out infinite;
+            animation: playwright-float 3s ease-in-out infinite;
         }
 
-        @keyframes float {
+        @keyframes playwright-float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
 
         /* About Section */
-        .about {
+        .playwright-about {
             background-color: var(--white);
         }
 
-        .about-content {
+        .playwright-about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
         }
 
-        .about-text {
+        .playwright-about-text {
             padding-right: 1rem;
         }
 
-        .stats {
+        .playwright-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        .stat {
+        .playwright-stat {
             text-align: center;
             padding: 1.5rem;
             background-color: var(--gray-light);
@@ -321,40 +222,40 @@
             transition: all 0.3s ease;
         }
 
-        .stat:hover {
+        .playwright-stat:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow);
         }
 
-        .stat-number {
+        .playwright-stat-number {
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
-        .stat-text {
+        .playwright-stat-text {
             font-size: 0.9rem;
             color: var(--text-light);
         }
 
-        .about-image img {
+        .playwright-about-image img {
             border-radius: var(--radius);
             box-shadow: var(--shadow);
         }
 
         /* Benefits Section */
-        .benefits {
+        .playwright-benefits {
             background-color: var(--gray-light);
         }
 
-        .benefits-grid {
+        .playwright-benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .benefit-card {
+        .playwright-benefit-card {
             background-color: var(--white);
             padding: 2rem;
             border-radius: var(--radius);
@@ -363,12 +264,12 @@
             transition: all 0.3s ease;
         }
 
-        .benefit-card:hover {
+        .playwright-benefit-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .benefit-icon {
+        .playwright-benefit-icon {
             width: 70px;
             height: 70px;
             background-color: var(--primary-light);
@@ -382,11 +283,11 @@
         }
 
         /* Comparison Section */
-        .comparison {
+        .playwright-comparison {
             background-color: var(--white);
         }
 
-        .comparison-table {
+        .playwright-comparison-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 2rem;
@@ -395,44 +296,44 @@
             overflow: hidden;
         }
 
-        .comparison-table th, .comparison-table td {
+        .playwright-comparison-table th, .playwright-comparison-table td {
             padding: 1rem;
             text-align: left;
             border-bottom: 1px solid var(--gray);
         }
 
-        .comparison-table th {
+        .playwright-comparison-table th {
             background-color: var(--primary);
             color: var(--white);
             font-weight: 600;
         }
 
-        .comparison-table tr:nth-child(even) {
+        .playwright-comparison-table tr:nth-child(even) {
             background-color: var(--gray-light);
         }
 
-        .comparison-table .check {
+        .playwright-comparison-table .playwright-check {
             color: #4CAF50;
             font-weight: bold;
         }
 
-        .comparison-table .cross {
+        .playwright-comparison-table .playwright-cross {
             color: #F44336;
             font-weight: bold;
         }
 
         /* Course Highlights Section */
-        .highlights {
+        .playwright-highlights {
             background-color: var(--gray-light);
         }
 
-        .highlights-grid {
+        .playwright-highlights-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .highlight-item {
+        .playwright-highlight-item {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
@@ -442,24 +343,24 @@
             box-shadow: var(--shadow);
         }
 
-        .highlight-icon {
+        .playwright-highlight-icon {
             color: var(--primary);
             font-size: 1.5rem;
             flex-shrink: 0;
         }
 
         /* Who Should Enroll Section */
-        .enroll {
+        .playwright-enroll {
             background-color: var(--white);
         }
 
-        .enroll-grid {
+        .playwright-enroll-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .enroll-card {
+        .playwright-enroll-card {
             background-color: var(--gray-light);
             padding: 2rem;
             border-radius: var(--radius);
@@ -467,35 +368,35 @@
             transition: all 0.3s ease;
         }
 
-        .enroll-card:hover {
+        .playwright-enroll-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow);
         }
 
-        .enroll-icon {
+        .playwright-enroll-icon {
             font-size: 3rem;
             color: var(--primary);
             margin-bottom: 1rem;
         }
 
         /* Curriculum Section */
-        .curriculum {
+        .playwright-curriculum {
             background-color: var(--gray-light);
         }
 
-        .curriculum-accordion {
+        .playwright-curriculum-accordion {
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .accordion-item {
+        .playwright-accordion-item {
             margin-bottom: 1rem;
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
         }
 
-        .accordion-header {
+        .playwright-accordion-header {
             background-color: var(--primary);
             color: var(--white);
             padding: 1.2rem;
@@ -506,7 +407,7 @@
             font-weight: 500;
         }
 
-        .accordion-content {
+        .playwright-accordion-content {
             background-color: var(--white);
             padding: 0;
             max-height: 0;
@@ -514,44 +415,44 @@
             transition: max-height 0.3s ease;
         }
 
-        .accordion-content.active {
+        .playwright-accordion-content.playwright-active {
             padding: 1.5rem;
             max-height: 1000px;
         }
 
-        .module-list {
+        .playwright-module-list {
             list-style-type: none;
         }
 
-        .module-list li {
+        .playwright-module-list li {
             padding: 0.5rem 0;
             border-bottom: 1px dashed var(--gray);
         }
 
-        .module-list li:last-child {
+        .playwright-module-list li:last-child {
             border-bottom: none;
         }
 
         /* Placement Section */
-        .placement {
+        .playwright-placement {
             background-color: var(--white);
         }
 
-        .placement-content {
+        .playwright-placement-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
         }
 
-        .company-logos {
+        .playwright-company-logos {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
             margin-top: 2rem;
         }
 
-        .company-logo {
+        .playwright-company-logo {
             background-color: var(--gray-light);
             padding: 1rem;
             border-radius: var(--radius);
@@ -561,40 +462,40 @@
             height: 80px;
         }
 
-        .company-logo img {
+        .playwright-company-logo img {
             max-width: 100%;
             max-height: 40px;
             filter: grayscale(100%);
             transition: filter 0.3s ease;
         }
 
-        .company-logo:hover img {
+        .playwright-company-logo:hover img {
             filter: grayscale(0%);
         }
 
         /* Testimonials Section */
-        .testimonials {
+        .playwright-testimonials {
             background-color: var(--gray-light);
         }
 
-        .testimonial-slider {
+        .playwright-testimonial-slider {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
             overflow: hidden;
         }
 
-        .testimonial-track {
+        .playwright-testimonial-track {
             display: flex;
             transition: transform 0.5s ease;
         }
 
-        .testimonial-slide {
+        .playwright-testimonial-slide {
             min-width: 100%;
             padding: 0 1rem;
         }
 
-        .testimonial-card {
+        .playwright-testimonial-card {
             background-color: var(--white);
             padding: 2rem;
             border-radius: var(--radius);
@@ -603,7 +504,7 @@
             position: relative;
         }
 
-        .testimonial-card::before {
+        .playwright-testimonial-card::before {
             content: '"';
             position: absolute;
             top: 10px;
@@ -614,50 +515,50 @@
             font-family: Georgia, serif;
         }
 
-        .testimonial-text {
+        .playwright-testimonial-text {
             font-style: italic;
             margin-bottom: 1.5rem;
             position: relative;
             z-index: 1;
         }
 
-        .testimonial-author {
+        .playwright-testimonial-author {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 1rem;
         }
 
-        .author-img {
+        .playwright-author-img {
             width: 60px;
             height: 60px;
             border-radius: 50%;
             overflow: hidden;
         }
 
-        .author-img img {
+        .playwright-author-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .author-info h4 {
+        .playwright-author-info h4 {
             margin-bottom: 0.2rem;
         }
 
-        .author-role {
+        .playwright-author-role {
             font-size: 0.9rem;
             color: var(--text-light);
         }
 
-        .slider-nav {
+        .playwright-slider-nav {
             display: flex;
             justify-content: center;
             gap: 1rem;
             margin-top: 2rem;
         }
 
-        .slider-dot {
+        .playwright-slider-dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
@@ -666,23 +567,23 @@
             transition: all 0.3s ease;
         }
 
-        .slider-dot.active {
+        .playwright-slider-dot.playwright-active {
             background-color: var(--primary);
             transform: scale(1.2);
         }
 
         /* Real Life Challenges Section */
-        .challenges {
+        .playwright-challenges {
             background-color: var(--white);
         }
 
-        .challenges-grid {
+        .playwright-challenges-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .challenge-card {
+        .playwright-challenge-card {
             background-color: var(--gray-light);
             padding: 2rem;
             border-radius: var(--radius);
@@ -690,7 +591,7 @@
             overflow: hidden;
         }
 
-        .challenge-card::before {
+        .playwright-challenge-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -701,29 +602,29 @@
         }
 
         /* Day to Day Applications Section */
-        .applications {
+        .playwright-applications {
             background-color: var(--gray-light);
         }
 
-        .applications-content {
+        .playwright-applications-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
         }
 
-        .application-steps {
+        .playwright-application-steps {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
 
-        .application-step {
+        .playwright-application-step {
             display: flex;
             gap: 1rem;
         }
 
-        .step-number {
+        .playwright-step-number {
             width: 40px;
             height: 40px;
             background-color: var(--primary);
@@ -737,46 +638,46 @@
         }
 
         /* Tips Section */
-        .tips {
+        .playwright-tips {
             background-color: var(--white);
         }
 
-        .tips-grid {
+        .playwright-tips-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .tip-card {
+        .playwright-tip-card {
             background-color: var(--gray-light);
             padding: 2rem;
             border-radius: var(--radius);
             text-align: center;
         }
 
-        .tip-icon {
+        .playwright-tip-icon {
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
         }
 
         /* Portfolio Section */
-        .portfolio {
+        .playwright-portfolio {
             background-color: var(--gray-light);
         }
 
-        .portfolio-content {
+        .playwright-portfolio-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
         }
 
-        .portfolio-list {
+        .playwright-portfolio-list {
             list-style-type: none;
         }
 
-        .portfolio-list li {
+        .playwright-portfolio-list li {
             padding: 0.8rem 0;
             border-bottom: 1px solid var(--gray);
             display: flex;
@@ -784,31 +685,31 @@
             gap: 0.8rem;
         }
 
-        .portfolio-list li:last-child {
+        .playwright-portfolio-list li:last-child {
             border-bottom: none;
         }
 
-        .portfolio-list li i {
+        .playwright-portfolio-list li i {
             color: var(--primary);
         }
 
         /* Soft Skills Section */
-        .soft-skills {
+        .playwright-soft-skills {
             background-color: var(--white);
         }
 
-        .skills-grid {
+        .playwright-skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .skill-item {
+        .playwright-skill-item {
             text-align: center;
             padding: 1.5rem;
         }
 
-        .skill-icon {
+        .playwright-skill-icon {
             width: 70px;
             height: 70px;
             background-color: var(--primary-light);
@@ -822,24 +723,24 @@
         }
 
         /* Interactive Learning Section */
-        .interactive {
+        .playwright-interactive {
             background-color: var(--gray-light);
         }
 
-        .interactive-content {
+        .playwright-interactive-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
         }
 
-        .learning-methods {
+        .playwright-learning-methods {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
         }
 
-        .method {
+        .playwright-method {
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -849,7 +750,7 @@
             box-shadow: var(--shadow);
         }
 
-        .method-icon {
+        .playwright-method-icon {
             width: 50px;
             height: 50px;
             background-color: var(--primary-light);
@@ -863,17 +764,17 @@
         }
 
         /* Career Roadmap Section */
-        .roadmap {
+        .playwright-roadmap {
             background-color: var(--white);
         }
 
-        .roadmap-container {
+        .playwright-roadmap-container {
             position: relative;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .roadmap-container::before {
+        .playwright-roadmap-container::before {
             content: '';
             position: absolute;
             top: 0;
@@ -884,24 +785,24 @@
             background-color: var(--primary);
         }
 
-        .roadmap-item {
+        .playwright-roadmap-item {
             display: flex;
             align-items: center;
             margin-bottom: 3rem;
             position: relative;
         }
 
-        .roadmap-item:nth-child(odd) {
+        .playwright-roadmap-item:nth-child(odd) {
             flex-direction: row-reverse;
             text-align: right;
         }
 
-        .roadmap-item:nth-child(odd) .roadmap-content {
+        .playwright-roadmap-item:nth-child(odd) .playwright-roadmap-content {
             margin-right: 2rem;
             margin-left: 0;
         }
 
-        .roadmap-dot {
+        .playwright-roadmap-dot {
             width: 20px;
             height: 20px;
             background-color: var(--primary);
@@ -912,7 +813,7 @@
             z-index: 1;
         }
 
-        .roadmap-content {
+        .playwright-roadmap-content {
             width: 45%;
             background-color: var(--gray-light);
             padding: 1.5rem;
@@ -922,33 +823,33 @@
         }
 
         /* Contact Section */
-        .contact {
+        .playwright-contact {
             background-color: var(--white);
         }
 
-        .contact-content {
+        .playwright-contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
         }
 
-        .contact-form {
+        .playwright-contact-form {
             background-color: var(--gray-light);
             padding: 2rem;
             border-radius: var(--radius);
         }
 
-        .form-group {
+        .playwright-form-group {
             margin-bottom: 1.5rem;
         }
 
-        .form-group label {
+        .playwright-form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
         }
 
-        .form-control {
+        .playwright-form-control {
             width: 100%;
             padding: 0.8rem 1rem;
             border: 1px solid var(--gray);
@@ -957,29 +858,29 @@
             transition: all 0.3s ease;
         }
 
-        .form-control:focus {
+        .playwright-form-control:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 2px rgba(255, 111, 0, 0.2);
         }
 
-        textarea.form-control {
+        textarea.playwright-form-control {
             min-height: 120px;
             resize: vertical;
         }
 
-        .contact-info {
+        .playwright-contact-info {
             padding: 1rem 0;
         }
 
-        .contact-item {
+        .playwright-contact-item {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
 
-        .contact-icon {
+        .playwright-contact-icon {
             width: 40px;
             height: 40px;
             background-color: var(--primary);
@@ -991,139 +892,60 @@
             flex-shrink: 0;
         }
 
-        .contact-details h4 {
+        .playwright-contact-details h4 {
             margin-bottom: 0.3rem;
         }
 
-        .map {
+        .playwright-map {
             margin-top: 2rem;
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
         }
 
-        .map iframe {
+        .playwright-map iframe {
             width: 100%;
             height: 200px;
             border: none;
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--gray-dark);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-col h3 {
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary);
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: #CCCCCC;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #CCCCCC;
-            font-size: 0.9rem;
-        }
-
         /* Animations */
-        .fade-in {
+        .playwright-fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease;
         }
 
-        .fade-in.visible {
+        .playwright-fade-in.playwright-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
         /* Responsive Design */
         @media (max-width: 992px) {
-            .hero-content, .about-content, .contact-content, .placement-content,
-            .applications-content, .portfolio-content, .interactive-content {
+            .playwright-hero-content, .playwright-about-content, .playwright-contact-content, .playwright-placement-content,
+            .playwright-applications-content, .playwright-portfolio-content, .playwright-interactive-content {
                 grid-template-columns: 1fr;
             }
             
-            .hero-text h1 {
+            .playwright-hero-text h1 {
                 font-size: 2.5rem;
             }
-            
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
 
-            .roadmap-container::before {
+            .playwright-roadmap-container::before {
                 left: 20px;
             }
 
-            .roadmap-item, .roadmap-item:nth-child(odd) {
+            .playwright-roadmap-item, .playwright-roadmap-item:nth-child(odd) {
                 flex-direction: row;
                 text-align: left;
             }
 
-            .roadmap-dot {
+            .playwright-roadmap-dot {
                 left: 20px;
             }
 
-            .roadmap-content, .roadmap-item:nth-child(odd) .roadmap-content {
+            .playwright-roadmap-content, .playwright-roadmap-item:nth-child(odd) .playwright-roadmap-content {
                 width: calc(100% - 60px);
                 margin-left: 60px;
                 margin-right: 0;
@@ -1131,132 +953,63 @@
         }
 
         @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem 0;
+            .playwright-hero {
+                padding: 4rem 0;
             }
             
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: var(--white);
-                flex-direction: column;
-                align-items: center;
-                padding: 2rem 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-                z-index: 999;
-            }
-            
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .hero {
-                padding: 8rem 0 4rem;
-            }
-            
-            .hero-text h1 {
+            .playwright-hero-text h1 {
                 font-size: 2rem;
             }
             
-            .hero-btns {
+            .playwright-hero-btns {
                 flex-direction: column;
                 align-items: flex-start;
             }
             
-            .stats, .benefits-grid, .highlights-grid, .enroll-grid, 
-            .challenges-grid, .tips-grid, .skills-grid {
+            .playwright-stats, .playwright-benefits-grid, .playwright-highlights-grid, .playwright-enroll-grid, 
+            .playwright-challenges-grid, .playwright-tips-grid, .playwright-skills-grid {
                 grid-template-columns: 1fr;
             }
 
-            .company-logos {
+            .playwright-company-logos {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 576px) {
-            .section {
+            .playwright-section {
                 padding: 3rem 0;
             }
             
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .container {
+            .playwright-container {
                 padding: 0 1rem;
             }
 
-            .comparison-table {
+            .playwright-comparison-table {
                 font-size: 0.9rem;
             }
 
-            .comparison-table th, .comparison-table td {
+            .playwright-comparison-table th, .playwright-comparison-table td {
                 padding: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
- 
-     <!-- Header - No changes -->
-    <header id="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">Uncodemy</a>
-                <ul class="nav-links">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#comparison">Comparison</a></li>
-                    <li><a href="#highlights">Highlights</a></li>
-                    <li><a href="#enroll">Who Should Enroll</a></li>
-                    <li><a href="#curriculum">Curriculum</a></li>
-                    <li><a href="#placement">Placement</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <a href="#contact" class="btn">Enroll Now</a>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section - Updated content -->
-    <section id="home" class="hero" >
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
+    <!-- Hero Section -->
+    <section id="home" class="playwright-hero">
+        <div class="playwright-container">
+            <div class="playwright-hero-content">
+                <div class="playwright-hero-text">
                     <h1>Playwright Training Course in Noida at Uncodemy</h1>
                     <p>Welcome to Uncodemy, your premier destination for upskilling and career growth with the best Playwright Training Course in Noida. In today's fast-paced digital world, automation testing has become a critical skill, and Playwright is one of the most in-demand frameworks for web application testing.</p>
-                    <div class="hero-btns">
-                        <a href="#curriculum" class="btn">View Curriculum</a>
-                        <a href="#contact" class="btn btn-outline">Enroll Now</a>
+                    <div class="playwright-hero-btns">
+                        <a href="#curriculum" class="playwright-btn">View Curriculum</a>
+                        <a href="#contact" class="playwright-btn playwright-btn-outline">Enroll Now</a>
                     </div>
-                    <div class="ratings">
+                    <div class="playwright-ratings">
                         <p><strong>Overall Rating: 4.9/5</strong> based on 5,650+ votes</p>
-                        <div class="rating-platforms">
+                        <div class="playwright-rating-platforms">
                             <span>Google: 5/5</span>
                             <span>Sul: 4.5/5</span>
                             <span>UrbanPro: 4.6/5</span>
@@ -1265,91 +1018,91 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero-image">
+                <div class="playwright-hero-image">
                     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="IT Training" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section - Updated content -->
-    <section id="about" class="about section">
-        <div class="container">
-            <div class="section-title">
+    <!-- About Section -->
+    <section id="about" class="playwright-about playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Why Choose Uncodemy?</h2>
             </div>
-            <div class="about-content">
-                <div class="about-text">
+            <div class="playwright-about-content">
+                <div class="playwright-about-text">
                     <p>Our Playwright Institute in Noida is designed to help you gain hands-on expertise, practical knowledge, and industry-ready skills to excel in automated testing and QA roles.</p>
                     <p>Whether you are a fresh graduate, IT professional, or someone looking to transition into automation testing, Uncodemy's Offline Playwright Course in Noida ensures that you are fully prepared to take on challenging projects in top companies.</p>
                     <p>By completing this Playwright Certificate Training in Noida, you will become a job-ready automation professional, capable of managing complex testing projects in top IT companies.</p>
                     
-                    <div class="stats">
-                        <div class="stat">
-                            <div class="stat-number" data-count="5500">0</div>
-                            <div class="stat-text">Successful Placements</div>
+                    <div class="playwright-stats">
+                        <div class="playwright-stat">
+                            <div class="playwright-stat-number" data-count="5500">0</div>
+                            <div class="playwright-stat-text">Successful Placements</div>
                         </div>
-                        <div class="stat">
-                            <div class="stat-number" data-count="10">0</div>
-                            <div class="stat-text">Years Experience</div>
+                        <div class="playwright-stat">
+                            <div class="playwright-stat-number" data-count="10">0</div>
+                            <div class="playwright-stat-text">Years Experience</div>
                         </div>
-                        <div class="stat">
-                            <div class="stat-number" data-count="20">0</div>
-                            <div class="stat-text">Live Projects</div>
+                        <div class="playwright-stat">
+                            <div class="playwright-stat-number" data-count="20">0</div>
+                            <div class="playwright-stat-text">Live Projects</div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
+                <div class="playwright-about-image">
                     <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Uncodemy" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section - Updated content -->
-    <section id="benefits" class="benefits section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Benefits Section -->
+    <section id="benefits" class="playwright-benefits playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Why Choose a Playwright Course for Career Growth?</h2>
             </div>
-            <div class="benefits-grid">
-                <div class="benefit-card fade-in">
-                    <div class="benefit-icon">
+            <div class="playwright-benefits-grid">
+                <div class="playwright-benefit-card playwright-fade-in">
+                    <div class="playwright-benefit-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>High Demand</h3>
                     <p>The demand for skilled Playwright testers is skyrocketing across industries.</p>
                 </div>
-                <div class="benefit-card fade-in">
-                    <div class="benefit-icon">
+                <div class="playwright-benefit-card playwright-fade-in">
+                    <div class="playwright-benefit-icon">
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <h3>Career Opportunities</h3>
                     <p>Pursue high-paying roles like Automation Engineer, QA Automation Tester, Test Lead, and Test Architect.</p>
                 </div>
-                <div class="benefit-card fade-in">
-                    <div class="benefit-icon">
+                <div class="playwright-benefit-card playwright-fade-in">
+                    <div class="playwright-benefit-icon">
                         <i class="fas fa-industry"></i>
                     </div>
                     <h3>Industry-Aligned Skills</h3>
                     <p>Gain expertise in end-to-end web testing, test case creation, debugging, and automation project management.</p>
                 </div>
-                <div class="benefit-card fade-in">
-                    <div class="benefit-icon">
+                <div class="playwright-benefit-card playwright-fade-in">
+                    <div class="playwright-benefit-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Fast Execution</h3>
                     <p>Playwright tests run significantly faster than other automation tools.</p>
                 </div>
-                <div class="benefit-card fade-in">
-                    <div class="benefit-icon">
+                <div class="playwright-benefit-card playwright-fade-in">
+                    <div class="playwright-benefit-icon">
                         <i class="fas fa-crosshairs"></i>
                     </div>
                     <h3>Cross-Browser Testing</h3>
                     <p>Test across all modern browsers with a single API.</p>
                 </div>
-                <div class="benefit-card fade-in">
-                    <div class="benefit-icon">
+                <div class="playwright-benefit-card playwright-fade-in">
+                    <div class="playwright-benefit-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3>Multiple Language Support</h3>
@@ -1359,14 +1112,14 @@
         </div>
     </section>
 
-    <!-- Comparison Section - Updated content -->
-    <section id="comparison" class="comparison section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Comparison Section -->
+    <section id="comparison" class="playwright-comparison playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Uncodemy vs Other Institutes</h2>
             </div>
-            <div class="comparison-table-container">
-                <table class="comparison-table">
+            <div class="playwright-comparison-table-container">
+                <table class="playwright-comparison-table">
                     <thead>
                         <tr>
                             <th>Features</th>
@@ -1377,43 +1130,43 @@
                     <tbody>
                         <tr>
                             <td>Industry Expert Trainers (10+ Years Experience)</td>
-                            <td class="check">✓</td>
-                            <td class="cross">✗</td>
+                            <td class="playwright-check">✓</td>
+                            <td class="playwright-cross">✗</td>
                         </tr>
                         <tr>
                             <td>Working Professionals as Trainers</td>
-                            <td class="check">✓</td>
-                            <td class="cross">✗</td>
+                            <td class="playwright-check">✓</td>
+                            <td class="playwright-cross">✗</td>
                         </tr>
                         <tr>
                             <td>20+ Live Projects + 1 Project per Module</td>
-                            <td class="check">✓</td>
-                            <td class="cross">✗</td>
+                            <td class="playwright-check">✓</td>
+                            <td class="playwright-cross">✗</td>
                         </tr>
                         <tr>
                             <td>Global Certifications (Microsoft, IBM)</td>
-                            <td class="check">✓</td>
-                            <td class="cross">✗</td>
+                            <td class="playwright-check">✓</td>
+                            <td class="playwright-cross">✗</td>
                         </tr>
                         <tr>
                             <td>Guaranteed Job Placement Assistance</td>
-                            <td class="check">✓</td>
-                            <td class="cross">✗</td>
+                            <td class="playwright-check">✓</td>
+                            <td class="playwright-cross">✗</td>
                         </tr>
                         <tr>
                             <td>AI Resume Building & Interview Analyzer</td>
-                            <td class="check">✓</td>
-                            <td class="cross">✗</td>
+                            <td class="playwright-check">✓</td>
+                            <td class="playwright-cross">✗</td>
                         </tr>
                         <tr>
                             <td>Lifetime Course Access + Recordings</td>
-                            <td class="check">✓</td>
-                            <td class="cross">✗</td>
+                            <td class="playwright-check">✓</td>
+                            <td class="playwright-cross">✗</td>
                         </tr>
                         <tr>
                             <td>Hands-on Training with 1:1 Mentorship</td>
-                            <td class="check">✓</td>
-                            <td class="cross">✗</td>
+                            <td class="playwright-check">✓</td>
+                            <td class="playwright-cross">✗</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1421,15 +1174,15 @@
         </div>
     </section>
 
-    <!-- Course Highlights Section - Updated content -->
-    <section id="highlights" class="highlights section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Course Highlights Section -->
+    <section id="highlights" class="playwright-highlights playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Course Highlights & Key Features</h2>
             </div>
-            <div class="highlights-grid">
-                <div class="highlight-item fade-in">
-                    <div class="highlight-icon">
+            <div class="playwright-highlights-grid">
+                <div class="playwright-highlight-item playwright-fade-in">
+                    <div class="playwright-highlight-icon">
                         <i class="fas fa-clock"></i>
                     </div>
                     <div>
@@ -1437,8 +1190,8 @@
                         <p>3–4 Months (Flexible)</p>
                     </div>
                 </div>
-                <div class="highlight-item fade-in">
-                    <div class="highlight-icon">
+                <div class="playwright-highlight-item playwright-fade-in">
+                    <div class="playwright-highlight-icon">
                         <i class="fas fa-laptop"></i>
                     </div>
                     <div>
@@ -1446,8 +1199,8 @@
                         <p>Offline Playwright Classes in Noida / Online Options Available</p>
                     </div>
                 </div>
-                <div class="highlight-item fade-in">
-                    <div class="highlight-icon">
+                <div class="playwright-highlight-item playwright-fade-in">
+                    <div class="playwright-highlight-icon">
                         <i class="fas fa-book"></i>
                     </div>
                     <div>
@@ -1455,8 +1208,8 @@
                         <p>Basics to advanced Playwright scripting, JS/TS, Node.js, CI/CD integration</p>
                     </div>
                 </div>
-                <div class="highlight-item fade-in">
-                    <div class="highlight-icon">
+                <div class="playwright-highlight-item playwright-fade-in">
+                    <div class="playwright-highlight-icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
                     <div>
@@ -1464,8 +1217,8 @@
                         <p>Real client-based projects to enhance your resume</p>
                     </div>
                 </div>
-                <div class="highlight-item fade-in">
-                    <div class="highlight-icon">
+                <div class="playwright-highlight-item playwright-fade-in">
+                    <div class="playwright-highlight-icon">
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <div>
@@ -1473,8 +1226,8 @@
                         <p>Mock interviews, resume building, corporate networking</p>
                     </div>
                 </div>
-                <div class="highlight-item fade-in">
-                    <div class="highlight-icon">
+                <div class="playwright-highlight-item playwright-fade-in">
+                    <div class="playwright-highlight-icon">
                         <i class="fas fa-user-tie"></i>
                     </div>
                     <div>
@@ -1486,50 +1239,50 @@
         </div>
     </section>
 
-    <!-- Who Should Enroll Section - Updated content -->
-    <section id="enroll" class="enroll section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Who Should Enroll Section -->
+    <section id="enroll" class="playwright-enroll playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Who Should Enroll?</h2>
             </div>
-            <div class="enroll-grid">
-                <div class="enroll-card fade-in">
-                    <div class="enroll-icon">
+            <div class="playwright-enroll-grid">
+                <div class="playwright-enroll-card playwright-fade-in">
+                    <div class="playwright-enroll-icon">
                         <i class="fas fa-user-graduate"></i>
                     </div>
                     <h3>Fresh Graduates</h3>
                     <p>Looking for Playwright certification in Noida to start their IT career.</p>
                 </div>
-                <div class="enroll-card fade-in">
-                    <div class="enroll-icon">
+                <div class="playwright-enroll-card playwright-fade-in">
+                    <div class="playwright-enroll-icon">
                         <i class="fas fa-laptop"></i>
                     </div>
                     <h3>Manual Testers</h3>
                     <p>Seeking to upgrade to automation testing roles.</p>
                 </div>
-                <div class="enroll-card fade-in">
-                    <div class="enroll-icon">
+                <div class="playwright-enroll-card playwright-fade-in">
+                    <div class="playwright-enroll-icon">
                         <i class="fas fa-sync-alt"></i>
                     </div>
                     <h3>IT Professionals</h3>
                     <p>Aiming to upskill in automation testing for career growth.</p>
                 </div>
-                <div class="enroll-card fade-in">
-                    <div class="enroll-icon">
+                <div class="playwright-enroll-card playwright-fade-in">
+                    <div class="playwright-enroll-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>QA Professionals</h3>
                     <p>Looking to enhance their testing skills with modern automation tools.</p>
                 </div>
-                <div class="enroll-card fade-in">
-                    <div class="enroll-icon">
+                <div class="playwright-enroll-card playwright-fade-in">
+                    <div class="playwright-enroll-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3>Career Changers</h3>
                     <p>Wanting to transition into the high-demand field of automation testing.</p>
                 </div>
-                <div class="enroll-card fade-in">
-                    <div class="enroll-icon">
+                <div class="playwright-enroll-card playwright-fade-in">
+                    <div class="playwright-enroll-icon">
                         <i class="fas fa-certificate"></i>
                     </div>
                     <h3>Certification Seekers</h3>
@@ -1539,20 +1292,20 @@
         </div>
     </section>
 
-    <!-- Curriculum Section - Updated content -->
-    <section id="curriculum" class="curriculum section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Curriculum Section -->
+    <section id="curriculum" class="playwright-curriculum playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Playwright Course Curriculum in Noida</h2>
             </div>
-            <div class="curriculum-accordion">
-                <div class="accordion-item fade-in">
-                    <div class="accordion-header">
+            <div class="playwright-curriculum-accordion">
+                <div class="playwright-accordion-item playwright-fade-in">
+                    <div class="playwright-accordion-header">
                         <span>Module 1: Introduction to Playwright</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <ul class="module-list">
+                    <div class="playwright-accordion-content">
+                        <ul class="playwright-module-list">
                             <li>Basics of automation testing</li>
                             <li>Installing and configuring Playwright</li>
                             <li>Writing first Playwright scripts</li>
@@ -1560,78 +1313,78 @@
                         </ul>
                     </div>
                 </div>
-                <div class="accordion-item fade-in">
-                    <div class="accordion-header">
+                <div class="playwright-accordion-item playwright-fade-in">
+                    <div class="playwright-accordion-header">
                         <span>Module 2: JavaScript & TypeScript for Playwright</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <ul class="module-list">
+                    <div class="playwright-accordion-content">
+                        <ul class="playwright-module-list">
                             <li>Fundamentals of JS & TS</li>
                             <li>DOM handling and locators</li>
                             <li>Event handling and debugging</li>
                         </ul>
                     </div>
                 </div>
-                <div class="accordion-item fade-in">
-                    <div class="accordion-header">
+                <div class="playwright-accordion-item playwright-fade-in">
+                    <div class="playwright-accordion-header">
                         <span>Module 3: Core Playwright Concepts</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <ul class="module-list">
+                    <div class="playwright-accordion-content">
+                        <ul class="playwright-module-list">
                             <li>Handling frames, popups, and alerts</li>
                             <li>Locators, selectors, and waits</li>
                             <li>Multiple page and tab automation</li>
                         </ul>
                     </div>
                 </div>
-                <div class="accordion-item fade-in">
-                    <div class="accordion-header">
+                <div class="playwright-accordion-item playwright-fade-in">
+                    <div class="playwright-accordion-header">
                         <span>Module 4: Advanced Playwright Features</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <ul class="module-list">
+                    <div class="playwright-accordion-content">
+                        <ul class="playwright-module-list">
                             <li>Headless browser testing</li>
                             <li>Parallel test execution</li>
                             <li>CI/CD integration and pipeline setup</li>
                         </ul>
                     </div>
                 </div>
-                <div class="accordion-item fade-in">
-                    <div class="accordion-header">
+                <div class="playwright-accordion-item playwright-fade-in">
+                    <div class="playwright-accordion-header">
                         <span>Module 5: Frameworks & Reporting</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <ul class="module-list">
+                    <div class="playwright-accordion-content">
+                        <ul class="playwright-module-list">
                             <li>Jest, Mocha, Cucumber</li>
                             <li>Logging, reporting, and debugging</li>
                             <li>Continuous Integration workflows</li>
                         </ul>
                     </div>
                 </div>
-                <div class="accordion-item fade-in">
-                    <div class="accordion-header">
+                <div class="playwright-accordion-item playwright-fade-in">
+                    <div class="playwright-accordion-header">
                         <span>Module 6: Real-Time Projects & Portfolio</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <ul class="module-list">
+                    <div class="playwright-accordion-content">
+                        <ul class="playwright-module-list">
                             <li>Automation for e-commerce and web apps</li>
                             <li>Client-based real-world projects</li>
                             <li>End-to-end testing scenarios</li>
                         </ul>
                     </div>
                 </div>
-                <div class="accordion-item fade-in">
-                    <div class="accordion-header">
+                <div class="playwright-accordion-item playwright-fade-in">
+                    <div class="playwright-accordion-header">
                         <span>Module 7: Interview Preparation & Resume Guidance</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <ul class="module-list">
+                    <div class="playwright-accordion-content">
+                        <ul class="playwright-module-list">
                             <li>Mock interviews and resume reviews</li>
                             <li>AI Resume Analyzer</li>
                             <li>Placement guidance and corporate networking</li>
@@ -1642,14 +1395,14 @@
         </div>
     </section>
 
-    <!-- Placement Section - Updated content -->
-    <section id="placement" class="placement section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Placement Section -->
+    <section id="placement" class="playwright-placement playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Placement Assistance & Corporate Exposure</h2>
             </div>
-            <div class="placement-content">
-                <div class="placement-text">
+            <div class="playwright-placement-content">
+                <div class="playwright-placement-text">
                     <p>Uncodemy ensures 100% placement support with:</p>
                     <ul>
                         <li>AI-based resume and interview analyzer</li>
@@ -1660,119 +1413,119 @@
                     </ul>
                     <p>Uncodemy has a proven track record with 5,500+ successful placements in top organizations.</p>
                 </div>
-                <div class="placement-companies">
+                <div class="playwright-placement-companies">
                     <h3>Our Placed Students</h3>
-                    <div class="company-logos">
-                        <div class="company-logo">TCS</div>
-                        <div class="company-logo">Deloitte</div>
-                        <div class="company-logo">Infosys</div>
-                        <div class="company-logo">IBM</div>
-                        <div class="company-logo">HCL</div>
-                        <div class="company-logo">Maruti Tech</div>
-                        <div class="company-logo">RapidOps</div>
-                        <div class="company-logo">Bloohash</div>
+                    <div class="playwright-company-logos">
+                        <div class="playwright-company-logo">TCS</div>
+                        <div class="playwright-company-logo">Deloitte</div>
+                        <div class="playwright-company-logo">Infosys</div>
+                        <div class="playwright-company-logo">IBM</div>
+                        <div class="playwright-company-logo">HCL</div>
+                        <div class="playwright-company-logo">Maruti Tech</div>
+                        <div class="playwright-company-logo">RapidOps</div>
+                        <div class="playwright-company-logo">Bloohash</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section - Updated content -->
-    <section id="testimonials" class="testimonials section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="playwright-testimonials playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Alumni Testimonials & Career Journeys</h2>
             </div>
-            <div class="testimonial-slider">
-                <div class="testimonial-track">
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-text">
+            <div class="playwright-testimonial-slider">
+                <div class="playwright-testimonial-track">
+                    <div class="playwright-testimonial-slide">
+                        <div class="playwright-testimonial-card">
+                            <div class="playwright-testimonial-text">
                                 "Uncodemy's Playwright course in Noida helped me get placed in Deloitte. Hands-on projects were amazing!"
                             </div>
-                            <div class="testimonial-author">
-                                <div class="author-img">
+                            <div class="playwright-testimonial-author">
+                                <div class="playwright-author-img">
                                     <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Riya Tiwari" loading="lazy">
                                 </div>
-                                <div class="author-info">
+                                <div class="playwright-author-info">
                                     <h4>Riya Tiwari</h4>
-                                    <div class="author-role">Placed at Deloitte</div>
+                                    <div class="playwright-author-role">Placed at Deloitte</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-text">
+                    <div class="playwright-testimonial-slide">
+                        <div class="playwright-testimonial-card">
+                            <div class="playwright-testimonial-text">
                                 "Curriculum is perfect for real-world testing. Highly recommend for automation enthusiasts."
                             </div>
-                            <div class="testimonial-author">
-                                <div class="author-img">
+                            <div class="playwright-testimonial-author">
+                                <div class="playwright-author-img">
                                     <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Tanvi Singh" loading="lazy">
                                 </div>
-                                <div class="author-info">
+                                <div class="playwright-author-info">
                                     <h4>Tanvi Singh</h4>
-                                    <div class="author-role">Placed at Bloohash</div>
+                                    <div class="playwright-author-role">Placed at Bloohash</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-text">
+                    <div class="playwright-testimonial-slide">
+                        <div class="playwright-testimonial-card">
+                            <div class="playwright-testimonial-text">
                                 "Trainers are extremely supportive. Placement support and resume guidance made a huge difference."
                             </div>
-                            <div class="testimonial-author">
-                                <div class="author-img">
+                            <div class="playwright-testimonial-author">
+                                <div class="playwright-author-img">
                                     <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Abhilasha Rathi" loading="lazy">
                                 </div>
-                                <div class="author-info">
+                                <div class="playwright-author-info">
                                     <h4>Abhilasha Rathi</h4>
-                                    <div class="author-role">Placed at IBM</div>
+                                    <div class="playwright-author-role">Placed at IBM</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="slider-nav">
-                    <div class="slider-dot active"></div>
-                    <div class="slider-dot"></div>
-                    <div class="slider-dot"></div>
+                <div class="playwright-slider-nav">
+                    <div class="playwright-slider-dot playwright-active"></div>
+                    <div class="playwright-slider-dot"></div>
+                    <div class="playwright-slider-dot"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Real Life Challenges Section - Updated content -->
-    <section id="challenges" class="challenges section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Real Life Challenges Section -->
+    <section id="challenges" class="playwright-challenges playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Real-Life Challenges in Automation Testing</h2>
             </div>
-            <div class="challenges-grid">
-                <div class="challenge-card fade-in">
+            <div class="playwright-challenges-grid">
+                <div class="playwright-challenge-card playwright-fade-in">
                     <h3>Handling Dynamic Web Elements</h3>
                     <p>Many students struggle with dynamic web elements, popups, or asynchronous scripts. These difficulties are completely normal and part of the learning curve.</p>
                 </div>
-                <div class="challenge-card fade-in">
+                <div class="playwright-challenge-card playwright-fade-in">
                     <h3>Time-Consuming Manual Testing</h3>
                     <p>Manual testing of repetitive tasks is often time-consuming and prone to errors. With Playwright, automation scripts can complete tasks in minutes while minimizing mistakes.</p>
                 </div>
-                <div class="challenge-card fade-in">
+                <div class="playwright-challenge-card playwright-fade-in">
                     <h3>Balancing Learning and Job</h3>
                     <p>For working professionals, balancing learning and full-time job responsibilities can be challenging. Uncodemy's weekend and evening batches are specifically designed to help.</p>
                 </div>
-                <div class="challenge-card fade-in">
+                <div class="playwright-challenge-card playwright-fade-in">
                     <h3>Portfolio Development</h3>
                     <p>Effectively showcasing Playwright projects in a portfolio is crucial to attract recruiters. Even a single well-documented project can make a strong impression.</p>
                 </div>
-                <div class="challenge-card fade-in">
+                <div class="playwright-challenge-card playwright-fade-in">
                     <h3>Soft Skills Development</h3>
                     <p>While technical knowledge is essential, communication and problem-solving skills are equally important for automation testers.</p>
                 </div>
-                <div class="challenge-card fade-in">
+                <div class="playwright-challenge-card playwright-fade-in">
                     <h3>Staying Updated with Trends</h3>
                     <p>Automation testing is constantly evolving with new trends like AI-assisted test generation and cloud-based parallel testing.</p>
                 </div>
@@ -1780,94 +1533,94 @@
         </div>
     </section>
 
-    <!-- Day to Day Applications Section - Updated content -->
-    <section id="applications" class="applications section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Day to Day Applications Section -->
+    <section id="applications" class="playwright-applications playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Day-to-Day Applications of Playwright in IT Projects</h2>
             </div>
-            <div class="applications-content">
-                <div class="application-steps">
-                    <div class="application-step fade-in">
-                        <div class="step-number">1</div>
+            <div class="playwright-applications-content">
+                <div class="playwright-application-steps">
+                    <div class="playwright-application-step playwright-fade-in">
+                        <div class="playwright-step-number">1</div>
                         <div>
                             <h3>E-commerce Checkout Processes</h3>
                             <p>Automate testing of shopping carts, payment gateways, and order processing.</p>
                         </div>
                     </div>
-                    <div class="application-step fade-in">
-                        <div class="step-number">2</div>
+                    <div class="playwright-application-step playwright-fade-in">
+                        <div class="playwright-step-number">2</div>
                         <div>
                             <h3>Banking Fund Transfer Modules</h3>
                             <p>Verify transaction workflows, security protocols, and error handling.</p>
                         </div>
                     </div>
-                    <div class="application-step fade-in">
-                        <div class="step-number">3</div>
+                    <div class="playwright-application-step playwright-fade-in">
+                        <div class="playwright-step-number">3</div>
                         <div>
                             <h3>ERP Employee Management Systems</h3>
                             <p>Automate payroll processing, attendance tracking, and HR workflows.</p>
                         </div>
                     </div>
-                    <div class="application-step fade-in">
-                        <div class="step-number">4</div>
+                    <div class="playwright-application-step playwright-fade-in">
+                        <div class="playwright-step-number">4</div>
                         <div>
                             <h3>Healthcare Portals</h3>
                             <p>Test patient registration, appointment scheduling, and medical record systems.</p>
                         </div>
                     </div>
                 </div>
-                <div class="application-image">
+                <div class="playwright-application-image">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Automation Testing" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tips Section - Updated content -->
-    <section id="tips" class="tips section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Tips Section -->
+    <section id="tips" class="playwright-tips playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Tips to Balance Learning and Job Responsibilities</h2>
             </div>
-            <div class="tips-grid">
-                <div class="tip-card fade-in">
-                    <div class="tip-icon">
+            <div class="playwright-tips-grid">
+                <div class="playwright-tip-card playwright-fade-in">
+                    <div class="playwright-tip-icon">
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                     <h3>Flexible Schedules</h3>
                     <p>Uncodemy's weekend and evening batches help professionals manage both learning and work.</p>
                 </div>
-                <div class="tip-card fade-in">
-                    <div class="tip-icon">
+                <div class="playwright-tip-card playwright-fade-in">
+                    <div class="playwright-tip-icon">
                         <i class="fas fa-video"></i>
                     </div>
                     <h3>Recorded Sessions</h3>
                     <p>Access recorded classes to review material at your convenience.</p>
                 </div>
-                <div class="tip-card fade-in">
-                    <div class="tip-icon">
+                <div class="playwright-tip-card playwright-fade-in">
+                    <div class="playwright-tip-icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
                     <h3>Structured Modules</h3>
                     <p>Well-organized curriculum allows efficient learning without compromising job responsibilities.</p>
                 </div>
-                <div class="tip-card fade-in">
-                    <div class="tip-icon">
+                <div class="playwright-tip-card playwright-fade-in">
+                    <div class="playwright-tip-icon">
                         <i class="fas fa-clock"></i>
                     </div>
                     <h3>Time Management</h3>
                     <p>Dedicate specific time slots for practice and project work.</p>
                 </div>
-                <div class="tip-card fade-in">
-                    <div class="tip-icon">
+                <div class="playwright-tip-card playwright-fade-in">
+                    <div class="playwright-tip-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Peer Support</h3>
                     <p>Collaborate with fellow learners to stay motivated and share knowledge.</p>
                 </div>
-                <div class="tip-card fade-in">
-                    <div class="tip-icon">
+                <div class="playwright-tip-card playwright-fade-in">
+                    <div class="playwright-tip-icon">
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <h3>Apply at Work</h3>
@@ -1877,16 +1630,16 @@
         </div>
     </section>
 
-    <!-- Portfolio Section - Updated content -->
-    <section id="portfolio" class="portfolio section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="playwright-portfolio playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Portfolio Development Tips</h2>
             </div>
-            <div class="portfolio-content">
-                <div class="portfolio-text">
+            <div class="playwright-portfolio-content">
+                <div class="playwright-portfolio-text">
                     <p>Effectively showcasing Playwright projects in a portfolio is crucial to attract recruiters. Clearly present each project with:</p>
-                    <ul class="portfolio-list">
+                    <ul class="playwright-portfolio-list">
                         <li><i class="fas fa-check"></i> Requirements analysis</li>
                         <li><i class="fas fa-check"></i> Test case design</li>
                         <li><i class="fas fa-check"></i> Automation scripts</li>
@@ -1896,57 +1649,57 @@
                     </ul>
                     <p>Even a single well-documented e-commerce automation project can make a strong impression during interviews.</p>
                 </div>
-                <div class="portfolio-image">
+                <div class="playwright-portfolio-image">
                     <img src="https://images.unsplash.com/photo-1556624651-1f527cdf6508?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Portfolio Development" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Soft Skills Section - Updated content -->
-    <section id="soft-skills" class="soft-skills section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Soft Skills Section -->
+    <section id="soft-skills" class="playwright-soft-skills playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Importance of Soft Skills Along with Technical Skills</h2>
             </div>
-            <div class="skills-grid">
-                <div class="skill-item fade-in">
-                    <div class="skill-icon">
+            <div class="playwright-skills-grid">
+                <div class="playwright-skill-item playwright-fade-in">
+                    <div class="playwright-skill-icon">
                         <i class="fas fa-comments"></i>
                     </div>
                     <h3>Communication</h3>
                     <p>Automation testers need to explain bugs, test results, and processes to team members or clients.</p>
                 </div>
-                <div class="skill-item fade-in">
-                    <div class="skill-icon">
+                <div class="playwright-skill-item playwright-fade-in">
+                    <div class="playwright-skill-icon">
                         <i class="fas fa-puzzle-piece"></i>
                     </div>
                     <h3>Problem-Solving</h3>
                     <p>Essential for analyzing complex systems and identifying root causes of issues.</p>
                 </div>
-                <div class="skill-item fade-in">
-                    <div class="skill-icon">
+                <div class="playwright-skill-item playwright-fade-in">
+                    <div class="playwright-skill-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Team Collaboration</h3>
                     <p>Work effectively in agile environments with cross-functional teams.</p>
                 </div>
-                <div class="skill-item fade-in">
-                    <div class="skill-icon">
+                <div class="playwright-skill-item playwright-fade-in">
+                    <div class="playwright-skill-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h3>Client Interaction</h3>
                     <p>Manage client expectations and present testing outcomes professionally.</p>
                 </div>
-                <div class="skill-item fade-in">
-                    <div class="skill-icon">
+                <div class="playwright-skill-item playwright-fade-in">
+                    <div class="playwright-skill-icon">
                         <i class="fas fa-chart-bar"></i>
                     </div>
                     <h3>Project Reporting</h3>
                     <p>Create clear, concise reports that stakeholders can understand and act upon.</p>
                 </div>
-                <div class="skill-item fade-in">
-                    <div class="skill-icon">
+                <div class="playwright-skill-item playwright-fade-in">
+                    <div class="playwright-skill-icon">
                         <i class="fas fa-sync-alt"></i>
                     </div>
                     <h3>Adaptability</h3>
@@ -1956,16 +1709,16 @@
         </div>
     </section>
 
-    <!-- Interactive Learning Section - Updated content -->
-    <section id="interactive" class="interactive section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Interactive Learning Section -->
+    <section id="interactive" class="playwright-interactive playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>How Uncodemy Makes Learning Interactive and Fun</h2>
             </div>
-            <div class="interactive-content">
-                <div class="learning-methods">
-                    <div class="method fade-in">
-                        <div class="method-icon">
+            <div class="playwright-interactive-content">
+                <div class="playwright-learning-methods">
+                    <div class="playwright-method playwright-fade-in">
+                        <div class="playwright-method-icon">
                             <i class="fas fa-laptop-code"></i>
                         </div>
                         <div>
@@ -1973,8 +1726,8 @@
                             <p>Hands-on experience with real-world scenarios and client-based projects.</p>
                         </div>
                     </div>
-                    <div class="method fade-in">
-                        <div class="method-icon">
+                    <div class="playwright-method playwright-fade-in">
+                        <div class="playwright-method-icon">
                             <i class="fas fa-users"></i>
                         </div>
                         <div>
@@ -1982,8 +1735,8 @@
                             <p>Collaborative learning environment with group activities and knowledge sharing.</p>
                         </div>
                     </div>
-                    <div class="method fade-in">
-                        <div class="method-icon">
+                    <div class="playwright-method playwright-fade-in">
+                        <div class="playwright-method-icon">
                             <i class="fas fa-bug"></i>
                         </div>
                         <div>
@@ -1991,8 +1744,8 @@
                             <p>Practical sessions focused on identifying and fixing automation issues.</p>
                         </div>
                     </div>
-                    <div class="method fade-in">
-                        <div class="method-icon">
+                    <div class="playwright-method playwright-fade-in">
+                        <div class="playwright-method-icon">
                             <i class="fas fa-chalkboard-teacher"></i>
                         </div>
                         <div>
@@ -2001,47 +1754,47 @@
                         </div>
                     </div>
                 </div>
-                <div class="interactive-image">
+                <div class="playwright-interactive-image">
                     <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Interactive Learning" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Career Roadmap Section - Updated content -->
-    <section id="roadmap" class="roadmap section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Career Roadmap Section -->
+    <section id="roadmap" class="playwright-roadmap playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Career Roadmap & Industry Trends</h2>
             </div>
-            <div class="roadmap-container">
-                <div class="roadmap-item">
-                    <div class="roadmap-dot"></div>
-                    <div class="roadmap-content">
+            <div class="playwright-roadmap-container">
+                <div class="playwright-roadmap-item">
+                    <div class="playwright-roadmap-dot"></div>
+                    <div class="playwright-roadmap-content">
                         <h3>Entry Level Positions</h3>
                         <p>Junior Automation Engineer → Automation Tester</p>
                         <p><strong>Average Salary in Noida:</strong> ₹4–8 LPA for beginners</p>
                     </div>
                 </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-dot"></div>
-                    <div class="roadmap-content">
+                <div class="playwright-roadmap-item">
+                    <div class="playwright-roadmap-dot"></div>
+                    <div class="playwright-roadmap-content">
                         <h3>Mid-Level Positions</h3>
                         <p>Senior Automation Engineer → Test Lead</p>
                         <p><strong>Industries Hiring:</strong> IT, E-commerce, Banking, Healthcare, Startups</p>
                     </div>
                 </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-dot"></div>
-                    <div class="roadmap-content">
+                <div class="playwright-roadmap-item">
+                    <div class="playwright-roadmap-dot"></div>
+                    <div class="playwright-roadmap-content">
                         <h3>Advanced Positions</h3>
                         <p>Test Architect → QA Manager</p>
                         <p><strong>Average Salary:</strong> ₹10–20 LPA for experienced professionals</p>
                     </div>
                 </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-dot"></div>
-                    <div class="roadmap-content">
+                <div class="playwright-roadmap-item">
+                    <div class="playwright-roadmap-dot"></div>
+                    <div class="playwright-roadmap-content">
                         <h3>Specialized Roles</h3>
                         <p>Agile testing, Scrum Master roles, Portfolio Management positions</p>
                         <p><strong>Emerging Trends:</strong> AI-assisted testing, cloud-based parallel testing</p>
@@ -2049,12 +1802,12 @@
                 </div>
             </div>
             
-            <div class="section-title" style="margin-top: 4rem;">
+            <div class="playwright-section-title" style="margin-top: 4rem;">
                 <h2>Sample Projects & Portfolio</h2>
             </div>
-            <div class="highlights-grid">
-                <div class="highlight-item fade-in">
-                    <div class="highlight-icon">
+            <div class="playwright-highlights-grid">
+                <div class="playwright-highlight-item playwright-fade-in">
+                    <div class="playwright-highlight-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <div>
@@ -2062,8 +1815,8 @@
                         <p>Automated testing of e-commerce site checkout process</p>
                     </div>
                 </div>
-                <div class="highlight-item fade-in">
-                    <div class="highlight-icon">
+                <div class="playwright-highlight-item playwright-fade-in">
+                    <div class="playwright-highlight-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
                     <div>
@@ -2071,8 +1824,8 @@
                         <p>End-to-end testing for web-based ERP application</p>
                     </div>
                 </div>
-                <div class="highlight-item fade-in">
-                    <div class="highlight-icon">
+                <div class="playwright-highlight-item playwright-fade-in">
+                    <div class="playwright-highlight-icon">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
                     <div>
@@ -2084,72 +1837,72 @@
         </div>
     </section>
 
-    <!-- Contact Section - No changes -->
-    <section id="contact" class="contact section">
-        <div class="container">
-            <div class="section-title">
+    <!-- Contact Section -->
+    <section id="contact" class="playwright-contact playwright-section">
+        <div class="playwright-container">
+            <div class="playwright-section-title">
                 <h2>Enroll Now</h2>
             </div>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form id="enrollForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
+            <div class="playwright-contact-content">
+                <div class="playwright-contact-form">
+                    <form id="playwright-enrollForm">
+                        <div class="playwright-form-group">
+                            <label for="playwright-name">Full Name</label>
+                            <input type="text" id="playwright-name" class="playwright-form-control" required>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
+                        <div class="playwright-form-group">
+                            <label for="playwright-email">Email Address</label>
+                            <input type="email" id="playwright-email" class="playwright-form-control" required>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control" required>
+                        <div class="playwright-form-group">
+                            <label for="playwright-phone">Phone Number</label>
+                            <input type="tel" id="playwright-phone" class="playwright-form-control" required>
                         </div>
-                        <div class="form-group">
-                            <label for="course">Select Course</label>
-                            <select id="course" class="form-control" required>
+                        <div class="playwright-form-group">
+                            <label for="playwright-course">Select Course</label>
+                            <select id="playwright-course" class="playwright-form-control" required>
                                 <option value="">Choose a course</option>
                                 <option value="playwright">Playwright Automation Testing</option>
                                 <option value="portfolio">Portfolio Management Professional</option>
                                 <option value="scrum">Scrum Master Certification</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Message (Optional)</label>
-                            <textarea id="message" class="form-control"></textarea>
+                        <div class="playwright-form-group">
+                            <label for="playwright-message">Message (Optional)</label>
+                            <textarea id="playwright-message" class="playwright-form-control"></textarea>
                         </div>
-                        <button type="submit" class="btn">Submit Enrollment Request</button>
+                        <button type="submit" class="playwright-btn">Submit Enrollment Request</button>
                     </form>
                 </div>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
+                <div class="playwright-contact-info">
+                    <div class="playwright-contact-item">
+                        <div class="playwright-contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <div class="contact-details">
+                        <div class="playwright-contact-details">
                             <h4>Our Location</h4>
                             <p>Uncodemy Institute, Sector 62, Noida, Uttar Pradesh 201309</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
+                    <div class="playwright-contact-item">
+                        <div class="playwright-contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <div class="contact-details">
+                        <div class="playwright-contact-details">
                             <h4>Phone Number</h4>
                             <p>+91 98765 43210</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
+                    <div class="playwright-contact-item">
+                        <div class="playwright-contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <div class="contact-details">
+                        <div class="playwright-contact-details">
                             <h4>Email Address</h4>
                             <p>info@uncodemy.com</p>
                         </div>
                     </div>
-                    <div class="map">
+                    <div class="playwright-map">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.715260342752!2d77.36912431508086!3d28.544358382451032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5f4dee5f5c7%3A0x6d7b6c1a8b0b0b0b!2sSector%2062%2C%20Noida%2C%20Uttar%20Pradesh%20201309!5e0!3m2!1sen!2sin!4v1629876543210!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
@@ -2157,108 +1910,80 @@
         </div>
     </section>
 
-    <!-- Footer -->
-  
-
     <script>
-        // Mobile Navigation Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.innerHTML = navLinks.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
         // Testimonial Slider
-        const track = document.querySelector('.testimonial-track');
-        const slides = document.querySelectorAll('.testimonial-slide');
-        const dots = document.querySelectorAll('.slider-dot');
-        let currentSlide = 0;
+        const playwrightTrack = document.querySelector('.playwright-testimonial-track');
+        const playwrightSlides = document.querySelectorAll('.playwright-testimonial-slide');
+        const playwrightDots = document.querySelectorAll('.playwright-slider-dot');
         
-        function goToSlide(slideIndex) {
-            track.style.transform = `translateX(-${slideIndex * 100}%)`;
+        if (playwrightTrack && playwrightSlides.length > 0 && playwrightDots.length > 0) {
+            let playwrightCurrentSlide = 0;
             
-            // Update active dot
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[slideIndex].classList.add('active');
+            function playwrightGoToSlide(slideIndex) {
+                playwrightTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
+                
+                // Update active dot
+                playwrightDots.forEach(dot => dot.classList.remove('playwright-active'));
+                playwrightDots[slideIndex].classList.add('playwright-active');
+                
+                playwrightCurrentSlide = slideIndex;
+            }
             
-            currentSlide = slideIndex;
+            // Dot click events
+            playwrightDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    playwrightGoToSlide(index);
+                });
+            });
+            
+            // Auto slide
+            setInterval(() => {
+                let playwrightNextSlide = (playwrightCurrentSlide + 1) % playwrightSlides.length;
+                playwrightGoToSlide(playwrightNextSlide);
+            }, 5000);
         }
         
-        // Dot click events
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                goToSlide(index);
-            });
-        });
-        
-        // Auto slide
-        setInterval(() => {
-            let nextSlide = (currentSlide + 1) % slides.length;
-            goToSlide(nextSlide);
-        }, 5000);
-        
         // Animated counter for stats
-        const counters = document.querySelectorAll('.stat-number');
-        const speed = 200;
+        const playwrightCounters = document.querySelectorAll('.playwright-stat-number');
+        const playwrightSpeed = 200;
         
-        const animateCounters = () => {
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-count');
-                const count = +counter.innerText;
-                const increment = target / speed;
+        const playwrightAnimateCounters = () => {
+            playwrightCounters.forEach(counter => {
+                const playwrightTarget = +counter.getAttribute('data-count');
+                const playwrightCount = +counter.innerText;
+                const playwrightIncrement = playwrightTarget / playwrightSpeed;
                 
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(animateCounters, 1);
+                if (playwrightCount < playwrightTarget) {
+                    counter.innerText = Math.ceil(playwrightCount + playwrightIncrement);
+                    setTimeout(playwrightAnimateCounters, 1);
                 } else {
-                    counter.innerText = target;
+                    counter.innerText = playwrightTarget;
                 }
             });
         };
         
         // Accordion functionality
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        const playwrightAccordionHeaders = document.querySelectorAll('.playwright-accordion-header');
         
-        accordionHeaders.forEach(header => {
+        playwrightAccordionHeaders.forEach(header => {
             header.addEventListener('click', () => {
-                const content = header.nextElementSibling;
-                const icon = header.querySelector('i');
+                const playwrightContent = header.nextElementSibling;
+                const playwrightIcon = header.querySelector('i');
                 
                 // Toggle active class
-                content.classList.toggle('active');
+                playwrightContent.classList.toggle('playwright-active');
                 
                 // Rotate icon
-                if (content.classList.contains('active')) {
-                    icon.style.transform = 'rotate(180deg)';
+                if (playwrightContent.classList.contains('playwright-active')) {
+                    playwrightIcon.style.transform = 'rotate(180deg)';
                 } else {
-                    icon.style.transform = 'rotate(0deg)';
+                    playwrightIcon.style.transform = 'rotate(0deg)';
                 }
                 
                 // Close other accordion items
-                accordionHeaders.forEach(otherHeader => {
+                playwrightAccordionHeaders.forEach(otherHeader => {
                     if (otherHeader !== header) {
-                        otherHeader.nextElementSibling.classList.remove('active');
+                        otherHeader.nextElementSibling.classList.remove('playwright-active');
                         otherHeader.querySelector('i').style.transform = 'rotate(0deg)';
                     }
                 });
@@ -2266,83 +1991,65 @@
         });
         
         // Scroll animation for elements
-        const fadeElements = document.querySelectorAll('.fade-in');
+        const playwrightFadeElements = document.querySelectorAll('.playwright-fade-in');
         
-        const checkScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
+        const playwrightCheckScroll = () => {
+            playwrightFadeElements.forEach(element => {
+                const playwrightElementTop = element.getBoundingClientRect().top;
+                const playwrightWindowHeight = window.innerHeight;
                 
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('visible');
+                if (playwrightElementTop < playwrightWindowHeight - 100) {
+                    element.classList.add('playwright-visible');
                 }
             });
         };
         
         // Initialize animations on load
         window.addEventListener('load', () => {
-            checkScroll();
+            playwrightCheckScroll();
             
             // Start counter animation when stats section is in view
-            const statsSection = document.querySelector('.stats');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        observer.unobserve(entry.target);
-                    }
+            const playwrightStatsSection = document.querySelector('.playwright-stats');
+            if (playwrightStatsSection) {
+                const playwrightObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            playwrightAnimateCounters();
+                            playwrightObserver.unobserve(entry.target);
+                        }
+                    });
                 });
-            });
-            
-            observer.observe(statsSection);
+                
+                playwrightObserver.observe(playwrightStatsSection);
+            }
         });
         
-        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('scroll', playwrightCheckScroll);
         
         // Form submission
-        document.getElementById('enrollForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your enrollment request! We will contact you shortly.');
-            this.reset();
-        });
+        const playwrightEnrollForm = document.getElementById('playwright-enrollForm');
+        if (playwrightEnrollForm) {
+            playwrightEnrollForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your enrollment request! We will contact you shortly.');
+                this.reset();
+            });
+        }
         
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+                const playwrightTargetId = this.getAttribute('href');
+                if (playwrightTargetId === '#') return;
                 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
+                const playwrightTargetElement = document.querySelector(playwrightTargetId);
+                if (playwrightTargetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: playwrightTargetElement.offsetTop,
                         behavior: 'smooth'
                     });
-                }
-            });
-        });
-        
-        // Set active navigation link based on scroll position
-        const sections = document.querySelectorAll('section');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (scrollY >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
                 }
             });
         });
